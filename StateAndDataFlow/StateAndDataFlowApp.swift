@@ -2,16 +2,19 @@
 //  StateAndDataFlowApp.swift
 //  StateAndDataFlow
 //
-//  Created by Kristi on 31.01.2022.
+//  Created by Kristel Maximova on 31.01.2022.
 //
 
 import SwiftUI
 
 @main
-struct StateAndDataFlowApp: App {
+struct StateAndDataFlow: App {
+    private let user = DataManager.shared.fetchUser()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            StarterView()
+                .environmentObject(UserManager(user: user))
         }
     }
 }
